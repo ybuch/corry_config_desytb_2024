@@ -7,9 +7,9 @@ RUN_NUMBER="$1"
 
 #Configuration of globally used paths
 
-RAW_DIR="/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/data"
-ROOT_DIR="/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/output/alignment_root"
-CORRY_CONFIG="/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/prealign_tel_mpx2.conf"
+RAW_DIR="/home/bgnet/beam_data/raw_files"
+ROOT_DIR="/home/bgnet/corry_config_desytb_2024/output/alignment_root"
+CORRY_CONFIG="/home/bgnet/corry_config_desytb_2024/prealign_tel_mpx2.conf"
 
 
 echo "Starting Run $RUN_NUMBER"
@@ -27,9 +27,9 @@ echo "Found MPX2 RAW file: $FILE_MPX"
 ROOT_FILE="prealign_run_$RUN_NUMBER.root"
 echo "Output root file: $ROOT_FILE"
 
-/home/silicon/TJ-Monopix2/corryvreckan/bin/corry  -c $CORRY_CONFIG \
--o detectors_file="/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/geo/init_geo/geo_id3.txt" \
--o detectors_file_updated="/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/geo/align_geo/${RUN_NUMBER}_detectors_prealigned.geo" \
+corry  -c $CORRY_CONFIG \
+-o detectors_file="//home/bgnet/corry_config_desytb_2024/geo/init_geo/geo_id3.geo" \
+-o detectors_file_updated="/home/bgnet/corry_config_desytb_2024/geo/align_geo/${RUN_NUMBER}_detectors_prealigned.geo" \
 -o histogram_file="$ROOT_FILE" \
 -o output_directory="$ROOT_DIR" \
 -o EventLoaderEUDAQ2:MIMOSA26_0.file_name=\"$FILE_TEL\" \
@@ -43,13 +43,13 @@ echo "Output root file: $ROOT_FILE"
 
 #Align Tel 1
 
-CORRY_CONFIG="/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/align_tel_mpx2.conf"
+CORRY_CONFIG="/home/bgnet/corry_config_desytb_2024/align_tel_mpx2.conf"
 ROOT_FILE="align_tel1_run_$RUN_NUMBER.root"
 echo "Output root file: $ROOT_FILE"
 
-/home/silicon/TJ-Monopix2/corryvreckan/bin/corry  -c $CORRY_CONFIG \
--o detectors_file="/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/geo/align_geo/${RUN_NUMBER}_detectors_prealigned.geo" \
--o detectors_file_updated="/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/geo/align_geo/${RUN_NUMBER}_detectors_tel_align_1.geo" \
+corry  -c $CORRY_CONFIG \
+-o detectors_file="/home/bgnet/corry_config_desytb_2024/geo/align_geo/${RUN_NUMBER}_detectors_prealigned.geo" \
+-o detectors_file_updated="/home/bgnet/corry_config_desytb_2024/geo/align_geo/${RUN_NUMBER}_detectors_tel_align_1.geo" \
 -o histogram_file="$ROOT_FILE" \
 -o output_directory="$ROOT_DIR" \
 -o EventLoaderEUDAQ2:MIMOSA26_0.file_name=\"$FILE_TEL\" \
@@ -64,13 +64,13 @@ echo "Output root file: $ROOT_FILE"
 
 #Align Tel 1
 
-CORRY_CONFIG="/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/align_tel_mpx2.conf"
+CORRY_CONFIG="/home/bgnet/corry_config_desytb_2024/align_tel_mpx2.conf"
 ROOT_FILE="align_tel2_run_$RUN_NUMBER.root"
 echo "Output root file: $ROOT_FILE"
 
-/home/silicon/TJ-Monopix2/corryvreckan/bin/corry  -c $CORRY_CONFIG \
--o detectors_file="/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/geo/align_geo/${RUN_NUMBER}_detectors_tel_align_1.geo" \
--o detectors_file_updated="/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/geo/align_geo/${RUN_NUMBER}_detectors_tel_align_2.geo" \
+corry  -c $CORRY_CONFIG \
+-o detectors_file="/home/bgnet/corry_config_desytb_2024/geo/align_geo/${RUN_NUMBER}_detectors_tel_align_1.geo"  \
+-o detectors_file_updated="/home/bgnet/corry_config_desytb_2024/geo/align_geo/${RUN_NUMBER}_detectors_tel_align_2.geo" \
 -o histogram_file="$ROOT_FILE" \
 -o output_directory="$ROOT_DIR" \
 -o EventLoaderEUDAQ2:MIMOSA26_0.file_name=\"$FILE_TEL\" \
@@ -85,13 +85,13 @@ echo "Output root file: $ROOT_FILE"
 
 #Align Tel 3
 
-CORRY_CONFIG="/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/align_tel_mpx3.conf"
+CORRY_CONFIG="/home/bgnet/corry_config_desytb_2024/align_tel_mpx3.conf"
 ROOT_FILE="align_tel3_run_$RUN_NUMBER.root"
 echo "Output root file: $ROOT_FILE"
 
-/home/silicon/TJ-Monopix2/corryvreckan/bin/corry  -c $CORRY_CONFIG \
--o detectors_file="/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/geo/align_geo/${RUN_NUMBER}_detectors_tel_align_2.geo" \
--o detectors_file_updated="/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/geo/align_geo/${RUN_NUMBER}_detectors_tel_align_3.geo" \
+corry  -c $CORRY_CONFIG \
+-o detectors_file="/home/bgnet/corry_config_desytb_2024/geo/align_geo/${RUN_NUMBER}_detectors_tel_align_2.geo" \
+-o detectors_file_updated="/home/bgnet/corry_config_desytb_2024/geo/align_geo/${RUN_NUMBER}_detectors_tel_align_3.geo" \
 -o histogram_file="$ROOT_FILE" \
 -o output_directory="$ROOT_DIR" \
 -o EventLoaderEUDAQ2:MIMOSA26_0.file_name=\"$FILE_TEL\" \
@@ -107,13 +107,13 @@ echo "Output root file: $ROOT_FILE"
 #Telescope is now aligned, starting with DUT alignment
 
 
-CORRY_CONFIG="/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/align_dut_mpx2.conf"
+CORRY_CONFIG="/home/bgnet/corry_config_desytb_2024/align_dut_mpx2.conf"
 ROOT_FILE="align_dut1_run_$RUN_NUMBER.root"
 echo "Output root file: $ROOT_FILE"
 
-/home/silicon/TJ-Monopix2/corryvreckan/bin/corry  -c $CORRY_CONFIG \
--o detectors_file="/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/geo/align_geo/${RUN_NUMBER}_detectors_tel_align_3.geo" \
--o detectors_file_updated="/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/geo/align_geo/${RUN_NUMBER}_detectors_dut_align_1.geo" \
+corry  -c $CORRY_CONFIG \
+-o detectors_file="/home/bgnet/corry_config_desytb_2024/geo/align_geo/${RUN_NUMBER}_detectors_tel_align_3.geo" \
+-o detectors_file_updated="/home/bgnet/corry_config_desytb_2024/geo/align_geo/${RUN_NUMBER}_detectors_dut_align_1.geo" \
 -o histogram_file="$ROOT_FILE" \
 -o output_directory="$ROOT_DIR" \
 -o EventLoaderEUDAQ2:MIMOSA26_0.file_name=\"$FILE_TEL\" \
@@ -125,13 +125,13 @@ echo "Output root file: $ROOT_FILE"
 -o EventLoaderEUDAQ2:Monopix2_0.file_name=\"$FILE_MPX\"
 
 
-CORRY_CONFIG="/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/align_dut_mpx2.conf"
+CORRY_CONFIG="/home/bgnet/corry_config_desytb_2024/align_dut_mpx2.conf"
 ROOT_FILE="align_dut1_run_$RUN_NUMBER.root"
 echo "Output root file: $ROOT_FILE"
 
-/home/silicon/TJ-Monopix2/corryvreckan/bin/corry  -c $CORRY_CONFIG \
--o detectors_file="/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/geo/align_geo/${RUN_NUMBER}_detectors_dut_align_1.geo" \
--o detectors_file_updated="/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/geo/full_aligned/${RUN_NUMBER}_full_aligned.geo" \
+corry  -c $CORRY_CONFIG \
+-o detectors_file="/home/bgnet/corry_config_desytb_2024/geo/align_geo/${RUN_NUMBER}_detectors_dut_align_1.geo" \
+-o detectors_file_updated="/home/bgnet/corry_config_desytb_2024/geo/full_aligned/${RUN_NUMBER}_full_aligned.geo" \
 -o histogram_file="$ROOT_FILE" \
 -o output_directory="$ROOT_DIR" \
 -o EventLoaderEUDAQ2:MIMOSA26_0.file_name=\"$FILE_TEL\" \
