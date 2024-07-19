@@ -4,6 +4,7 @@
 # before alignment: change initial geo (line 31)
 
 RUN_NUMBER="$1"
+GEOID="$2"
 
 # Configuration of globally used paths
 
@@ -27,7 +28,7 @@ ROOT_FILE="prealign_run_$RUN_NUMBER.root"
 echo "Output root file: $ROOT_FILE"
 
 corry  -c $CORRY_CONFIG \
--o detectors_file="$ROOT_DIR/geo/init_geo/geo_id3.geo" \
+-o detectors_file="$ROOT_DIR/geo/init_geo/geo_id${GEOID}.geo" \
 -o detectors_file_updated="$ROOT_DIR/geo/align_geo/${RUN_NUMBER}_detectors_prealigned.geo" \
 -o histogram_file="$ROOT_FILE" \
 -o output_directory="$ROOT_DIR/output/alignment_root" \
@@ -123,7 +124,7 @@ corry  -c $CORRY_CONFIG \
 # DUT alignment 2
 
 CORRY_CONFIG="$ROOT_DIR/align_dut_mpx2.conf"
-ROOT_FILE="align_dut1_run_$RUN_NUMBER.root"
+ROOT_FILE="align_dut2_run_$RUN_NUMBER.root"
 echo "Output root file: $ROOT_FILE"
 
 corry  -c $CORRY_CONFIG \
