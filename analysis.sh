@@ -20,8 +20,26 @@ ROOT_FILE="analysis_run_$RUN_NUMBER.root"
 echo "Output root file: $ROOT_FILE"
 
 
-corry  -c $CORRY_CONFIG \
+CORRY_CONFIG_ALIGN="$ROOT_DIR/align_dut_mpx2.conf"
+ROOT_FILE_ALIGN="align_dut_per_run_correction_$RUN_NUMBER.root"
+echo "Output root file: $ROOT_FILE_ALIGN"
+
+corry  -c $CORRY_CONFIG_ALIGN \
 -o detectors_file="$ROOT_DIR/geo/full_aligned/${RUN_NUMBER}_full_aligned.geo" \
+-o detectors_file_updated="$ROOT_DIR/geo/full_aligned/${RUN_NUMBER}_full_aligned_per_run_correction.geo" \
+-o histogram_file="$ROOT_FILE_ALIGN" \
+-o output_directory="$ROOT_DIR/output/alignment_root" \
+-o EventLoaderEUDAQ2:MIMOSA26_0.file_name=\"$FILE_TEL\" \
+-o EventLoaderEUDAQ2:MIMOSA26_1.file_name=\"$FILE_TEL\" \
+-o EventLoaderEUDAQ2:MIMOSA26_2.file_name=\"$FILE_TEL\" \
+-o EventLoaderEUDAQ2:MIMOSA26_3.file_name=\"$FILE_TEL\" \
+-o EventLoaderEUDAQ2:MIMOSA26_4.file_name=\"$FILE_TEL\" \
+-o EventLoaderEUDAQ2:MIMOSA26_5.file_name=\"$FILE_TEL\" \
+-o EventLoaderEUDAQ2:Monopix2_0.file_name=\"$FILE_MPX\" 
+
+
+corry  -c $CORRY_CONFIG \
+-o detectors_file="$ROOT_DIR/geo/full_aligned/${RUN_NUMBER}_full_aligned_per_run_correction.geo" \
 -o histogram_file="$ROOT_FILE" \
 -o output_directory="$ROOT_DIR/output" \
 -o EventLoaderEUDAQ2:Monopix2_0.file_name=\"$FILE_MPX\" \
