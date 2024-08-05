@@ -36,7 +36,7 @@ selected_keys = [
     "AnalysisDUT/Monopix2_0/pxqvsxmym",
     "AnalysisDUT/Monopix2_0/npxvsxmym",
     "AnalysisDUT/Monopix2_0/qvsxmym",
-#    "AnalysisDUT/Monopix2_0/pqxqvsxmym",
+    "AnalysisDUT/Monopix2_0/pqxqvsxmym",
 ]
 
 
@@ -126,43 +126,10 @@ else:
     stop = int(args.stop) + 1 # in range end is not inclusive, make sure we process last specified run too
 
 for i in range(start, stop):
-    current_run = str(i)
-
-    print(f'\n\n #################### Analizing Run{current_run}#######################\n')
-
-    data_in_files = glob.glob(data_folder + '/*.raw')
-    
-    number_of_events = args.n
-
-    geo_file = f'/home/akumar/vtx_belle2/analysis/beam/2024_07_DESY/corry_config_desytb_2024/geometries/geoid{args.g}_{args.r}_dut_aligned.geo'
+    current_run = str(i)    
     output_file_name = f'analysis_run{current_run}'
-    output_ttree_file_name = f'analysis_run{current_run}_tree.root'
 
     if args.c:
         output_file_name += '_' + args.c
 
-    current_dut_file = ''
-    current_tel_file = ''
-    for f in data_in_files:
-        m = re.search(f'mpx2.+run(0*{current_run})', f)
-        if m:
-            current_dut_file = f
-
-        m = re.search(f'telescope.+run(0*{current_run})', f)
-        if m:
-            current_tel_file = f
-
-    
-
-    print('found files: ', current_dut_file, ' ', current_tel_file)
-
-    corry_cmd = f'{corry_bin} -c {corry_config_template} -o number_of_events={args.n} -o output_directory={output_dir} -o TreeWriterDUT.file_name={output_ttree_file_name}  -o histogram_file={output_file_name}.root -o  detectors_file={geo_file} -o EventLoaderEUDAQ2.file_name={current_tel_file} -o EventLoaderEUDAQ2:Monopix2_0.file_name={current_dut_file}'
-
-    print('executing ', corry_cmd)
-
-    os.system(corry_cmd)
-
     pdfName = make_pdf(f'{output_dir}/{output_file_name}.root')
-
-    configID = args.g
-    #elog("", attachments=[pdfName], run_number=current_run, credFileElog='/home/testbeam1/Documents/elog_creds.txt').uploadToElog()
