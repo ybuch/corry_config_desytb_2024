@@ -1,6 +1,6 @@
 [MIMOSA26_0]
 coordinates = "cartesian"
-mask_file = "/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/geo/maskfiles/mask_MIMOSA26_0.txt"
+mask_file = "/heros/users/hhanderkas/Testbeam/desy_07.24/geo/mask_files/mask_MIMOSA26_0.txt"
 material_budget = 0.00075
 number_of_pixels = 1152, 576
 orientation = 0deg,0deg,0deg
@@ -14,40 +14,38 @@ type = "mimosa26"
 
 [MIMOSA26_1]
 coordinates = "cartesian"
-mask_file = "/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/geo/maskfiles/mask_MIMOSA26_1.txt"
+mask_file = "/heros/users/hhanderkas/Testbeam/desy_07.24/geo/mask_files/mask_MIMOSA26_1.txt"
 material_budget = 0.00075
 number_of_pixels = 1152, 576
-orientation = -0.0974601deg,0.28052deg,0.119347deg
+orientation = -0.0628535deg,0.267228deg,0.119805deg
 orientation_mode = "xyz"
 pixel_pitch = 18.4um,18.4um
-position = -33.881um,238.9um,25.48mm
+position = -34.83um,239.429um,25.48mm
 spatial_resolution = 4um,4um
 time_resolution = 230us
 type = "mimosa26"
 
 [MIMOSA26_2]
 coordinates = "cartesian"
-mask_file = "/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/geo/maskfiles/mask_MIMOSA26_2.txt"
+mask_file = "/heros/users/hhanderkas/Testbeam/desy_07.24/geo/mask_files/mask_MIMOSA26_2.txt"
 material_budget = 0.00075
 number_of_pixels = 1152, 576
-orientation = -0.0421124deg,0.0878344deg,0.304355deg
+orientation = -0.0349504deg,0.0865166deg,0.304928deg
 orientation_mode = "xyz"
 pixel_pitch = 18.4um,18.4um
-position = 5.399um,0.908um,51.58mm
+position = 2.876um,1.818um,51.58mm
 spatial_resolution = 4um,4um
 time_resolution = 230us
 type = "mimosa26"
 
 [Monopix2_0]
 coordinates = "cartesian"
-mask_file = "/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/mpx_mask.txt"
 material_budget = 0.00075
 number_of_pixels = 512, 512
-orientation = 177.861deg,179.482deg,0.0963142deg
+orientation = 180deg,180deg,0.116024deg
 orientation_mode = "xyz"
 pixel_pitch = 33.04um,33.04um
-position = 4.14189mm,1.85978mm,101.91mm
-roi = [[450,10],[480,10],[480,500],[450,500]]
+position = 4.13869mm,1.86347mm,101.91mm
 role = "dut"
 spatial_resolution = 9.5um,9.5um
 time_resolution = 230us
@@ -55,39 +53,39 @@ type = "monopix2"
 
 [MIMOSA26_3]
 coordinates = "cartesian"
-mask_file = "/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/geo/maskfiles/mask_MIMOSA26_3.txt"
+mask_file = "/heros/users/hhanderkas/Testbeam/desy_07.24/geo/mask_files/mask_MIMOSA26_3.txt"
 material_budget = 0.00075
 number_of_pixels = 1152, 576
-orientation = 0.338962deg,2.02157deg,0.101585deg
+orientation = -0.485926deg,-2.12642deg,0.104565deg
 orientation_mode = "xyz"
 pixel_pitch = 18.4um,18.4um
-position = 1.01974mm,513.387um,138.86mm
+position = 1.01178mm,513.509um,138.86mm
 spatial_resolution = 4um,4um
 time_resolution = 230us
 type = "mimosa26"
 
 [MIMOSA26_4]
 coordinates = "cartesian"
-mask_file = "/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/geo/maskfiles/mask_MIMOSA26_4.txt"
+mask_file = "/heros/users/hhanderkas/Testbeam/desy_07.24/geo/mask_files/mask_MIMOSA26_4.txt"
 material_budget = 0.00075
 number_of_pixels = 1152, 576
-orientation = -0.34091deg,-1.7807deg,-0.279546deg
+orientation = -0.487587deg,-1.90394deg,-0.27628deg
 orientation_mode = "xyz"
 pixel_pitch = 18.4um,18.4um
-position = 793.742um,399.028um,165.41mm
+position = 784.834um,399.275um,165.41mm
 spatial_resolution = 4um,4um
 time_resolution = 230us
 type = "mimosa26"
 
 [MIMOSA26_5]
 coordinates = "cartesian"
-mask_file = "/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/geo/maskfiles/mask_MIMOSA26_5.txt"
+mask_file = "/heros/users/hhanderkas/Testbeam/desy_07.24/geo/mask_files/mask_MIMOSA26_5.txt"
 material_budget = 0.00075
 number_of_pixels = 1152, 576
-orientation = 0.302579deg,1.43027deg,0.12691deg
+orientation = 0.447308deg,1.62348deg,0.130462deg
 orientation_mode = "xyz"
 pixel_pitch = 18.4um,18.4um
-position = 565.664um,436.233um,193.45mm
+position = 556.086um,436.236um,193.45mm
 spatial_resolution = 4um,4um
 time_resolution = 230us
 type = "mimosa26"

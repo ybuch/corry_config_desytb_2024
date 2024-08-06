@@ -1,0 +1,11 @@
+measurement: 20240717_095624_analog_scan
+median_hits: 100.0
+std_hits: 0.39880218366885795
+cutoff: 110.0
+masked_pixels:
+- row: 205
+  col: 478
+  hits: 134.0
+- row: 253
+  col: 461
+  hits: 138.0
