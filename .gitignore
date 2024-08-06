@@ -1,2 +1,3 @@
-output/
-data/
+output/alignment/*.root
+output/dut_align/*.root
+
