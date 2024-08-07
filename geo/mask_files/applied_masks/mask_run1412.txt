@@ -689,3 +689,8 @@ c 486
 c 487
 c 488
 c 489
+Usage: python script.py <yaml_file> 
+ 
+    Optionally use >> to append the output to an existing mask txt file. 
+ 
+    Remember to clean up the mask txt file before processing a new run.
