@@ -1,5 +1,5 @@
 [MIMOSA26_0]
-mask_file = "/heros/users/hhanderkas/Testbeam/desy_07.24/geo/mask_files/mask_MIMOSA26_0.txt"
+mask_file = "../mask_files/mask_MIMOSA26_0.txt"
 number_of_pixels = 1152,576
 orientation = 0,0,0
 orientation_mode = "xyz"
@@ -11,7 +11,7 @@ material_budget = 0.00075
 type = "MIMOSA26"
 
 [MIMOSA26_1]
-mask_file = "/heros/users/hhanderkas/Testbeam/desy_07.24/geo/mask_files/mask_MIMOSA26_1.txt"
+mask_file = "../mask_files/mask_MIMOSA26_1.txt"
 number_of_pixels = 1152,576
 orientation = 0,0,0
 orientation_mode = "xyz"
@@ -23,7 +23,7 @@ material_budget = 0.00075
 type = "MIMOSA26"
 
 [MIMOSA26_2]
-mask_file = "/heros/users/hhanderkas/Testbeam/desy_07.24/geo/mask_files/mask_MIMOSA26_2.txt"
+mask_file = "../mask_files/mask_MIMOSA26_2.txt"
 number_of_pixels = 1152,576
 orientation = 0,0,0
 orientation_mode = "xyz"
@@ -48,7 +48,7 @@ type = "Monopix2"
 role = "dut"
 
 [MIMOSA26_3]
-mask_file = "/heros/users/hhanderkas/Testbeam/desy_07.24/geo/mask_files/mask_MIMOSA26_3.txt"
+mask_file = "../mask_files/mask_MIMOSA26_3.txt"
 number_of_pixels = 1152,576
 orientation = 0,0,0
 orientation_mode = "xyz"
@@ -60,7 +60,7 @@ material_budget = 0.00075
 type = "MIMOSA26"
 
 [MIMOSA26_4]
-mask_file = "/heros/users/hhanderkas/Testbeam/desy_07.24/geo/mask_files/mask_MIMOSA26_4.txt"
+mask_file = "../mask_files/mask_MIMOSA26_4.txt"
 number_of_pixels = 1152,576
 orientation = 0,0,0
 orientation_mode = "xyz"
@@ -72,7 +72,7 @@ material_budget = 0.00075
 type = "MIMOSA26"
 
 [MIMOSA26_5]
-mask_file = "/heros/users/hhanderkas/Testbeam/desy_07.24/geo/mask_files/mask_MIMOSA26_5.txt"
+mask_file = "../mask_files/mask_MIMOSA26_5.txt"
 number_of_pixels = 1152,576
 orientation = 0,0,0
 orientation_mode = "xyz"
