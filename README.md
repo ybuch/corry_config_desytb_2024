@@ -1,6 +1,6 @@
 # General Instructions
 
-This repo contains needed scripts and files for the alignment and analysis of TB data. Please note that paths need to be updated in the scrips as well as in geo files (path to mask files).
+This repo contains needed scripts and files for the alignment and analysis of TB data. Please note that paths need to be updated in the scrips as well as in geo files (path to mask files). The scripts also assume that the corryvreckan binary is in PATH. 
 
 Alignment: run `full_align.sh` for each geo_id (telescope and DUT alignment) and afterwards `run_alignment.sh` for each run (DUT alignment).
 
