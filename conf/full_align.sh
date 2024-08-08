@@ -25,7 +25,7 @@ echo "Output root file: $ROOT_FILE"
 
 corry -c $CORRY_CONFIG \
 -o detectors_file="../geo/init_geo/geo_id$GEO_ID.geo" \
--o detectors_file_updated="../geo/align_geo/${RUN_NUMBER}_detectors_prealigned.geo" \
+-o detectors_file_updated="../geo/temp/${RUN_NUMBER}_detectors_prealigned.geo" \
 -o histogram_file="$ROOT_FILE" \
 -o output_directory="$ROOT_DIR" \
 -o EventLoaderEUDAQ2:MIMOSA26_0.file_name=\"$FILE_TEL\" \
@@ -44,8 +44,8 @@ ROOT_FILE="align_tel1_run_$RUN_NUMBER.root"
 echo "Output root file: $ROOT_FILE"
 
 corry -c $CORRY_CONFIG \
--o detectors_file="../geo/align_geo/${RUN_NUMBER}_detectors_prealigned.geo" \
--o detectors_file_updated="../geo/align_geo/${RUN_NUMBER}_detectors_tel_align_1.geo" \
+-o detectors_file="../geo/temp/${RUN_NUMBER}_detectors_prealigned.geo" \
+-o detectors_file_updated="../geo/temp/${RUN_NUMBER}_detectors_tel_align_1.geo" \
 -o histogram_file="$ROOT_FILE" \
 -o output_directory="$ROOT_DIR" \
 -o EventLoaderEUDAQ2:MIMOSA26_0.file_name=\"$FILE_TEL\" \
@@ -65,8 +65,8 @@ ROOT_FILE="align_tel2_run_$RUN_NUMBER.root"
 echo "Output root file: $ROOT_FILE"
 
 corry -c $CORRY_CONFIG \
--o detectors_file="../geo/align_geo/${RUN_NUMBER}_detectors_tel_align_1.geo" \
--o detectors_file_updated="../geo/align_geo/${RUN_NUMBER}_detectors_tel_align_2.geo" \
+-o detectors_file="../geo/temp/${RUN_NUMBER}_detectors_tel_align_1.geo" \
+-o detectors_file_updated="../geo/temp/${RUN_NUMBER}_detectors_tel_align_2.geo" \
 -o histogram_file="$ROOT_FILE" \
 -o output_directory="$ROOT_DIR" \
 -o EventLoaderEUDAQ2:MIMOSA26_0.file_name=\"$FILE_TEL\" \
@@ -86,8 +86,8 @@ ROOT_FILE="align_tel3_run_$RUN_NUMBER.root"
 echo "Output root file: $ROOT_FILE"
 
 corry -c $CORRY_CONFIG \
--o detectors_file="../geo/align_geo/${RUN_NUMBER}_detectors_tel_align_2.geo" \
--o detectors_file_updated="../geo/align_geo/${RUN_NUMBER}_detectors_tel_align_3.geo" \
+-o detectors_file="../geo/temp/${RUN_NUMBER}_detectors_tel_align_2.geo" \
+-o detectors_file_updated="../geo/temp/${RUN_NUMBER}_detectors_tel_align_3.geo" \
 -o histogram_file="$ROOT_FILE" \
 -o output_directory="$ROOT_DIR" \
 -o EventLoaderEUDAQ2:MIMOSA26_0.file_name=\"$FILE_TEL\" \
@@ -108,8 +108,8 @@ ROOT_FILE="align_dut1_run_$RUN_NUMBER.root"
 echo "Output root file: $ROOT_FILE"
 
 corry -c $CORRY_CONFIG \
--o detectors_file="../geo/align_geo/${RUN_NUMBER}_detectors_tel_align_3.geo" \
--o detectors_file_updated="../geo/align_geo/${RUN_NUMBER}_detectors_dut_align_1.geo" \
+-o detectors_file="../geo/temp/${RUN_NUMBER}_detectors_tel_align_3.geo" \
+-o detectors_file_updated="../geo/temp/${RUN_NUMBER}_detectors_dut_align_1.geo" \
 -o histogram_file="$ROOT_FILE" \
 -o output_directory="$ROOT_DIR" \
 -o EventLoaderEUDAQ2:MIMOSA26_0.file_name=\"$FILE_TEL\" \
@@ -126,7 +126,7 @@ ROOT_FILE="align_dut2_run_$RUN_NUMBER.root"
 echo "Output root file: $ROOT_FILE"
 
 corry -c $CORRY_CONFIG \
--o detectors_file="../geo/align_geo/${RUN_NUMBER}_detectors_dut_align_1.geo" \
+-o detectors_file="../geo/temp/${RUN_NUMBER}_detectors_dut_align_1.geo" \
 -o detectors_file_updated="../geo/full_aligned/geo_id${GEO_ID}_full_aligned.geo" \
 -o histogram_file="$ROOT_FILE" \
 -o output_directory="$ROOT_DIR" \
