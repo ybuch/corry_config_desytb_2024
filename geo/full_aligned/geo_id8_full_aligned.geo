@@ -1,6 +1,6 @@
 [MIMOSA26_0]
 coordinates = "cartesian"
-mask_file = "/heros/users/hhanderkas/Testbeam/desy_07.24/geo/mask_files/mask_MIMOSA26_0.txt"
+mask_file = "../mask_files/mask_MIMOSA26_0.txt"
 material_budget = 0.00075
 number_of_pixels = 1152, 576
 orientation = -0.311804deg,-1.54836deg,-0.39431deg
@@ -13,7 +13,7 @@ type = "mimosa26"
 
 [MIMOSA26_1]
 coordinates = "cartesian"
-mask_file = "/heros/users/hhanderkas/Testbeam/desy_07.24/geo/mask_files/mask_MIMOSA26_1.txt"
+mask_file = "../mask_files/mask_MIMOSA26_1.txt"
 material_budget = 0.00075
 number_of_pixels = 1152, 576
 orientation = 0.158366deg,1.12042deg,-0.230386deg
@@ -26,7 +26,7 @@ type = "mimosa26"
 
 [MIMOSA26_2]
 coordinates = "cartesian"
-mask_file = "/heros/users/hhanderkas/Testbeam/desy_07.24/geo/mask_files/mask_MIMOSA26_2.txt"
+mask_file = "../mask_files/mask_MIMOSA26_2.txt"
 material_budget = 0.00075
 number_of_pixels = 1152, 576
 orientation = 0deg,0deg,0deg
@@ -53,7 +53,7 @@ type = "monopix2"
 
 [MIMOSA26_3]
 coordinates = "cartesian"
-mask_file = "/heros/users/hhanderkas/Testbeam/desy_07.24/geo/mask_files/mask_MIMOSA26_3.txt"
+mask_file = "../mask_files/mask_MIMOSA26_3.txt"
 material_budget = 0.00075
 number_of_pixels = 1152, 576
 orientation = 0.224657deg,-1.96559deg,-0.0111154deg
@@ -66,7 +66,7 @@ type = "mimosa26"
 
 [MIMOSA26_4]
 coordinates = "cartesian"
-mask_file = "/heros/users/hhanderkas/Testbeam/desy_07.24/geo/mask_files/mask_MIMOSA26_4.txt"
+mask_file = "../mask_files/mask_MIMOSA26_4.txt"
 material_budget = 0.00075
 number_of_pixels = 1152, 576
 orientation = 0.262529deg,-1.5934deg,-0.344978deg
@@ -79,7 +79,7 @@ type = "mimosa26"
 
 [MIMOSA26_5]
 coordinates = "cartesian"
-mask_file = "/heros/users/hhanderkas/Testbeam/desy_07.24/geo/mask_files/mask_MIMOSA26_5.txt"
+mask_file = "../mask_files/mask_MIMOSA26_5.txt"
 material_budget = 0.00075
 number_of_pixels = 1152, 576
 orientation = -0.168736deg,1.0971deg,0.111268deg
