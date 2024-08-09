@@ -16,8 +16,8 @@ run_start = 1400
 run_stop = 1401
 do_masking_per_run = True
 do_analysis = True
-number_of_events_align = 10000
-number_of_events_analyze = 10000
+number_of_events_align = 100000
+number_of_events_analyze = 100000000
 
 
 df = pd.read_csv("../run_properties.csv", sep=",")
@@ -28,6 +28,8 @@ data_in_files = glob.glob(data_folder + '/*.raw')
 
 
 for current_run in range(run_start,run_stop+1):
+    if not current_run in df['run_number'].unique():
+        continue
     current_dut_file = ''
     current_tel_file = ''
     for f in data_in_files:
