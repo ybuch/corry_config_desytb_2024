@@ -40,7 +40,7 @@ type = "mimosa26"
 
 [Monopix2_0]
 coordinates = "cartesian"
-material_budget = 0.00075
+material_budget = 0.0032
 number_of_pixels = 512, 512
 orientation = 2.24422deg,-1.25592deg,89.8deg
 orientation_mode = "xyz"
