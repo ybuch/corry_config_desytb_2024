@@ -41,7 +41,7 @@ type = "mimosa26"
 [Monopix2_0]
 #mask_file = "/media/silicon/60080e46-ab47-4d7b-9668-26cd42445d81/corry_analysis/geo/maskfiles/mask_geo5.txt"
 coordinates = "cartesian"
-material_budget = 0.00075
+material_budget = 0.0032
 number_of_pixels = 512, 512
 orientation = 2.24422deg,-1.25592deg,89.8503deg
 orientation_mode = "xyz"
