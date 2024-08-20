@@ -25,10 +25,10 @@ do_analysis = True
 number_of_events_align = 100000
 
 parser = argparse.ArgumentParser(description='corry analysis wrapper')
-parser.add_argument('-r', help='run number', default = 0)
-parser.add_argument('--start', help='run number start', default = 0)
-parser.add_argument('--stop', help='run number stop', default = 0)
-parser.add_argument('-n', help='number of events for analysis', default = 100000000)
+parser.add_argument('-r', help='run number', default = 0, type=int)
+parser.add_argument('--start', help='run number start', default = 0, type=int)
+parser.add_argument('--stop', help='run number stop', default = 0, type=int)
+parser.add_argument('-n', help='number of events for analysis', default = 100000000, type=int)
 
 args = parser.parse_args()
 
