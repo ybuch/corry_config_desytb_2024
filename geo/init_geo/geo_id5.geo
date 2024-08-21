@@ -36,7 +36,7 @@ role = "reference"
 type = "MIMOSA26"
 
 [Monopix2_0]
-material_budget = 0.00075
+material_budget = 0.0032
 number_of_pixels = 512, 512
 orientation = 0deg,0deg,90deg
 orientation_mode = "xyz"
