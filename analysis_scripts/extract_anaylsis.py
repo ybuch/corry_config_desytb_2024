@@ -62,7 +62,7 @@ def optimise_hist_gaus(hist):
 
 if __name__ == '__main__':
 
-    rootfile_folder = 'path/to/data'
+    rootfile_folder = 'path/to/dir'
 
     args = parse_args()
 
@@ -104,6 +104,21 @@ if __name__ == '__main__':
         hResX = analysis_dut_dir_res.Get("residualsX")
         hResY = analysis_dut_dir_res.Get("residualsY")
 
+        hResX_tel = [file.Get(f"AnalysisTelescope/MIMOSA26_{nmb}/residualX_global") for nmb in range(0,6)]
+        hResY_tel = [file.Get(f"AnalysisTelescope/MIMOSA26_{nmb}/residualY_global") for nmb in range(0,6)]
+
+
+        # Retrieve cluster properties
+
+        cluster_size_mean = file.Get("ClusteringSpatial/Monopix2_0/clusterSize").GetMean()
+        cluster_charge_mean = file.Get("ClusteringSpatial/Monopix2_0/clusterCharge").GetMean()
+        seed_charge_mean = file.Get("ClusteringSpatial/Monopix2_0/clusterSeedCharge").GetMean()
+
+        row_dict = {'clusterSize_mean':cluster_size_mean,
+                    'clusterCharge_mean':cluster_charge_mean,
+                    'seedCharge_mean':seed_charge_mean,
+                    }
+
         # efficiency calculation
         nTrack = int(hCutHisto.GetBinContent(1))
         nTrackCutChi2 = int(hCutHisto.GetBinContent(2))
@@ -119,16 +134,16 @@ if __name__ == '__main__':
         with open(f'efficiency_with_runno.txt', 'a') as f:
             f.write(str(run_number)+'\t'+str(nTrackPass)+'\t'+str(nAssociatedCluster)+'\t'+str(eff)+'\t'+str(error)+'\t'+str(lerr)+'\t'+str(uerr)+'\n')
 
-        row_dict={'run_number':run_number,
+        row_dict.update({'run_number':run_number,
                      'nTrackPass':nTrackPass,
                      'nAssociatedCluster':nAssociatedCluster,
                      'efficiency':eff,
                      'efficiency_error':error,
                      'efficiency_lerr':lerr,
                      'efficiency_uerr':uerr
-                     }
+                     })
 
-        # resolution calculation
+        # resolution calculation DUT
         meanx, sigmax, errmeanx, errsigmax = optimise_hist_gaus(hResX)
         meany, sigmay, errmeany, errsigmay = optimise_hist_gaus(hResY)
         mean=(meanx+meany)/2.0
@@ -144,7 +159,21 @@ if __name__ == '__main__':
                          'residuals_sigma':sigma,
                          'residuals_errsigma':errsigma
                          })
+
+        # resolution calculation Tel
+        tel_resolutions_x = [list(optimise_hist_gaus(hResX)) for hResX in hResX_tel]
+        tel_resolutions_y = [list(optimise_hist_gaus(hResY)) for hResY in hResY_tel]
+        mean_tel = [telx[0]+tely[0]/2 for telx,tely in zip(tel_resolutions_x,tel_resolutions_y)]
+        sigma_tel = [telx[1]+tely[1]/2 for telx,tely in zip(tel_resolutions_x,tel_resolutions_y)]
+        errmean_tel = [telx[2]+tely[2]/2 for telx,tely in zip(tel_resolutions_x,tel_resolutions_y)]
+        errsigma_tel = [telx[3]+tely[3]/2 for telx,tely in zip(tel_resolutions_x,tel_resolutions_y)]
+        di_list = [{f'residuals_mean_mimosa{nmb}':mean_tel[nmb], f'residuals_errmean_mimosa{nmb}':errmean_tel[nmb],f'residuals_sigma_mimosa{nmb}':sigma_tel[nmb],f'residuals_errsigma_mimosa{nmb}':errsigma_tel[nmb]} for nmb in range(0,6)]
+        for di in di_list:
+            row_dict.update(di)
+
+
         rows_list.append(row_dict)
+
     #Use columns option to preserve a sensible order
     columns = ['run_number',
                'nTrackPass',
@@ -157,7 +186,13 @@ if __name__ == '__main__':
                'residuals_errmean',
                'residuals_sigma',
                'residuals_errsigma',
+               'clusterSize_mean',
+               'clusterCharge_mean',
+               'seedCharge_mean',
                ]
+    for di in di_list:
+        columns  = columns + list(di.keys())
+
     df = pd.DataFrame(rows_list,columns=columns)
     df = df.set_index('run_number')
     df.to_csv("analysis_results.csv", sep=',')
