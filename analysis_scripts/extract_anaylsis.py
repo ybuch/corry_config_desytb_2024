@@ -8,15 +8,16 @@ import argparse
 import glob
 import re
 import pandas as pd
-
+import numpy as np
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Post-processing script for corryvreckan')
     parser.add_argument('-f', '--infile',help='Output histogram from corry', default="analog-debug.root")
-    parser.add_argument('-r', help='run number', default = 0)
-    parser.add_argument('--start', help='run number start', default = 0)
-    parser.add_argument('--stop', help='run number stop', default = 0)
-
+    parser.add_argument('-r', help='run number', default = 0, type=int)
+    parser.add_argument('--start', help='run number start', default = 0, type=int)
+    parser.add_argument('--stop', help='run number stop', default = 0, type=int)
+    parser.add_argument('--dir', help='directory with analysis root files',default='../analysis', type=str)
+    parser.add_argument('--run_prop_file', help='path to run_properties file',default='../run_properties.csv', type=str)
     return parser.parse_args()
 
 # numerical calculation
@@ -44,7 +45,7 @@ def optimise_hist_gaus(hist):
     fwhm = hist.GetBinCenter(halfRight) - hist.GetBinCenter(halfLeft)
     if fwhm < 2 * hist.GetBinWidth(1):
         print(f'[X] Warning  - FWHM too narrow {center = }, {fwhm = }, {rms = }, {peak = }')
-        return None
+        return np.nan, np.nan, np.nan, np.nan
     fitRange = min(5 * rms, 1.0 * fwhm)
     fcnGaus = ROOT.TF1(f'fcnFitGaus_{hist.GetName()}', 'gaus', center - fitRange, center + fitRange)
     resultPtr = hist.Fit(fcnGaus,'SQN','', center - fitRange, center + fitRange)
@@ -52,7 +53,7 @@ def optimise_hist_gaus(hist):
         params = resultPtr.GetParams()
     except ReferenceError:
         print(f'[X] Warning  - Fitting failed with {center = }, {fwhm = }, {rms = }, {peak = }')
-        return None
+        return np.nan, np.nan, np.nan, np.nan
     parErrors = resultPtr.GetErrors()
     mean = params[1]
     sigma = params[2]
@@ -62,9 +63,9 @@ def optimise_hist_gaus(hist):
 
 if __name__ == '__main__':
 
-    rootfile_folder = 'path/to/dir'
-
     args = parse_args()
+
+    rootfile_folder = args.dir
 
     if args.r == 0 and (args.start == 0 or args.stop == 0):
         print("Either use run number or start/stop to give a range of runs to be analyzed.")
@@ -130,9 +131,6 @@ if __name__ == '__main__':
         # print(nTrackPass, nAssociatedCluster) 
         if(nTrackPass==0): continue
         eff, error, lerr, uerr = efficiency_simple(nAssociatedCluster, nTrackPass)
-        print(eff, error, lerr, uerr)
-        with open(f'efficiency_with_runno.txt', 'a') as f:
-            f.write(str(run_number)+'\t'+str(nTrackPass)+'\t'+str(nAssociatedCluster)+'\t'+str(eff)+'\t'+str(error)+'\t'+str(lerr)+'\t'+str(uerr)+'\n')
 
         row_dict.update({'run_number':run_number,
                      'nTrackPass':nTrackPass,
@@ -151,9 +149,7 @@ if __name__ == '__main__':
         errmean=(errmeanx+errmeanx)/2.0
         errsigma=(errsigmax+errsigmax)/2.0
         # print(meanx, sigmax, errmeanx, errsigmax)
-        print(mean, sigma, errmean, errsigma)
-        with open(f'residuals_with_runno.txt', 'a') as f:
-            f.write(str(run_number)+'\t'+str(mean)+'\t'+str(errmean)+'\t'+str(sigma)+'\t'+str(errsigma)+'\n')
+
         row_dict.update({'residuals_mean':mean,
                          'residuals_errmean':errmean,
                          'residuals_sigma':sigma,
@@ -195,4 +191,6 @@ if __name__ == '__main__':
 
     df = pd.DataFrame(rows_list,columns=columns)
     df = df.set_index('run_number')
+    df_prop = pd.read_csv(args.run_prop_file).set_index('run_number')
+    df = df.join(df_prop)
     df.to_csv("analysis_results.csv", sep=',')
