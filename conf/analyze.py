@@ -10,8 +10,10 @@ import pandas as pd
 
 
 # These paths might need to be changed
-data_folder = '/home/bgnet2/s3_cloud/beam_data/desy'
-corry_bin = '~/corryvreckan/bin/corry'
+data_folder = '/home/bgnet/vtx/TB2024_run_data'
+corry_bin = '/home/bgnet/vtx/corryvreckan/bin/corry'
+calibration_file_base_path = "/home/bgnet/vtx/corry_config_desytb_2024/geo/calibration/"  # Fixed base for calibration files
+use_calibrated_values = "true"
 
 # These paths do not need to be changed.
 geo_path_tel = '../geo/full_aligned'
@@ -69,6 +71,7 @@ for current_run in range(run_start,run_stop+1):
     run_aligned = run_align_folder+'/'+f'alignment_run_{current_run}.geo'
     run_aligned_histo = '/'+f'alignment_run_{current_run}.root'
     analysis_histo = analysis_folder+'/'+f'analysis_run_{current_run}.root'
+    calibration_file = f"{calibration_file_base_path}{current_run}.txt"
 
     if do_align_per_run:
         print(f'Running alignment for run {current_run}')
@@ -89,6 +92,16 @@ for current_run in range(run_start,run_stop+1):
 
     if do_analysis:
         print(f'Running anaylsis for run {current_run}')
-        corry_cmd = f'{corry_bin} -c {analysis_conf} -o number_of_events={number_of_events_analyze} -o output_directory={analysis_folder} -o detectors_file={run_aligned} -o histogram_file={analysis_histo} -o EventLoaderEUDAQ2.file_name={current_tel_file} -o EventLoaderEUDAQ2:Monopix2_0.file_name={current_dut_file}'
+        corry_cmd = (
+            f'{corry_bin} -c {analysis_conf} -o number_of_events={number_of_events_analyze} '
+            f'-o output_directory={analysis_folder} '
+            f'-o detectors_file={run_aligned} '
+            f'-o histogram_file={analysis_histo} '
+            f'-o EventLoaderEUDAQ2.file_name={current_tel_file} '
+            f'-o EventLoaderEUDAQ2:Monopix2_0.file_name={current_dut_file} '
+            f'-o EventLoaderEUDAQ2:Monopix2_0.use_calibrated_values={use_calibrated_values} '
+            f'-o EventLoaderEUDAQ2:Monopix2_0.calibration_file={calibration_file}'
+            )
+
         print(corry_cmd)
         os.system(corry_cmd)

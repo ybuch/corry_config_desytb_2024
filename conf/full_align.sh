@@ -4,7 +4,7 @@ RUN_NUMBER="$1"
 GEO_ID="$2"
 
 #Configuration of globally used paths
-RAW_DIR="<path_to_data>"	#edit!
+RAW_DIR="/home/bgnet/vtx/TB2024_run_data"	#edit!
 ROOT_DIR="../output/alignment"
 
 
