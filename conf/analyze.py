@@ -75,7 +75,7 @@ for current_run in range(run_start,run_stop+1):
 
     if do_align_per_run:
         print(f'Running alignment for run {current_run}')
-        corry_cmd = f'{corry_bin} -c {dut_align_conf} -o number_of_events={number_of_events_align} -o output_directory={run_align_folder} -o detectors_file={tel_full_aligned} -o detectors_file_updated={run_aligned} -o histogram_file={run_aligned_histo} -o EventLoaderEUDAQ2.file_name={current_tel_file} -o EventLoaderEUDAQ2:Monopix2_0.file_name={current_dut_file}'
+        corry_cmd = f'{corry_bin} -c {dut_align_conf} -o number_of_events={number_of_events_align} -o output_directory={run_align_folder} -o detectors_file={tel_full_aligned} -o detectors_file_updated={run_aligned} -o histogram_file={run_aligned_histo} -o EventLoaderBelleIITJ2.file_name={current_tel_file} -o EventLoaderBelleIITJ2:Monopix2_0.file_name={current_dut_file}'
         print(corry_cmd)
         os.system(corry_cmd)
 
@@ -97,10 +97,10 @@ for current_run in range(run_start,run_stop+1):
             f'-o output_directory={analysis_folder} '
             f'-o detectors_file={run_aligned} '
             f'-o histogram_file={analysis_histo} '
-            f'-o EventLoaderEUDAQ2.file_name={current_tel_file} '
-            f'-o EventLoaderEUDAQ2:Monopix2_0.file_name={current_dut_file} '
-            f'-o EventLoaderEUDAQ2:Monopix2_0.use_calibrated_values={use_calibrated_values} '
-            f'-o EventLoaderEUDAQ2:Monopix2_0.calibration_file={calibration_file}'
+            f'-o EventLoaderBelleIITJ2.file_name={current_tel_file} '
+            f'-o EventLoaderBelleIITJ2:Monopix2_0.file_name={current_dut_file} '
+            f'-o EventLoaderBelleIITJ2:Monopix2_0.use_calibrated_values={use_calibrated_values} '
+            f'-o EventLoaderBelleIITJ2:Monopix2_0.calibration_file={calibration_file}'
             )
 
         print(corry_cmd)
