@@ -2,4 +2,4 @@ a=0.443
 b=0.000
 c=116.291
 t=0.000
-calibration_factor = 1
+calibration_factor=1
