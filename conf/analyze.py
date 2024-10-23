@@ -92,6 +92,8 @@ for current_run in range(run_start,run_stop+1):
 
     if do_analysis:
         print(f'Running anaylsis for run {current_run}')
+        if use_calibrated_values == True:
+            print(f'Running anaylsis with charge calibration from file {calibration_file}')
         corry_cmd = (
             f'{corry_bin} -c {analysis_conf} -o number_of_events={number_of_events_analyze} '
             f'-o output_directory={analysis_folder} '
