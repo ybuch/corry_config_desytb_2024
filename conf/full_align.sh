@@ -4,7 +4,7 @@ RUN_NUMBER="$1"
 GEO_ID="$2"
 
 #Configuration of globally used paths
-RAW_DIR="<path_to_data>"	#edit!
+RAW_DIR="/home/bgnet/vtx/TB2024_run_data"	#edit!
 ROOT_DIR="../output/alignment"
 
 
@@ -28,13 +28,13 @@ corry -c $CORRY_CONFIG \
 -o detectors_file_updated="../geo/temp/${RUN_NUMBER}_detectors_prealigned.geo" \
 -o histogram_file="$ROOT_FILE" \
 -o output_directory="$ROOT_DIR" \
--o EventLoaderEUDAQ2:MIMOSA26_0.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_1.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_2.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_3.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_4.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_5.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:Monopix2_0.file_name=\"$FILE_MPX\" 
+-o EventLoaderBelleIITJ2:MIMOSA26_0.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_1.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_2.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_3.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_4.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_5.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:Monopix2_0.file_name=\"$FILE_MPX\" 
 
 
 #Align Tel 1
@@ -48,13 +48,13 @@ corry -c $CORRY_CONFIG \
 -o detectors_file_updated="../geo/temp/${RUN_NUMBER}_detectors_tel_align_1.geo" \
 -o histogram_file="$ROOT_FILE" \
 -o output_directory="$ROOT_DIR" \
--o EventLoaderEUDAQ2:MIMOSA26_0.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_1.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_2.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_3.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_4.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_5.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:Monopix2_0.file_name=\"$FILE_MPX\" 
+-o EventLoaderBelleIITJ2:MIMOSA26_0.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_1.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_2.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_3.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_4.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_5.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:Monopix2_0.file_name=\"$FILE_MPX\" 
 
 
 
@@ -69,13 +69,13 @@ corry -c $CORRY_CONFIG \
 -o detectors_file_updated="../geo/temp/${RUN_NUMBER}_detectors_tel_align_2.geo" \
 -o histogram_file="$ROOT_FILE" \
 -o output_directory="$ROOT_DIR" \
--o EventLoaderEUDAQ2:MIMOSA26_0.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_1.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_2.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_3.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_4.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_5.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:Monopix2_0.file_name=\"$FILE_MPX\" 
+-o EventLoaderBelleIITJ2:MIMOSA26_0.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_1.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_2.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_3.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_4.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_5.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:Monopix2_0.file_name=\"$FILE_MPX\" 
 
 
 
@@ -90,13 +90,13 @@ corry -c $CORRY_CONFIG \
 -o detectors_file_updated="../geo/temp/${RUN_NUMBER}_detectors_tel_align_3.geo" \
 -o histogram_file="$ROOT_FILE" \
 -o output_directory="$ROOT_DIR" \
--o EventLoaderEUDAQ2:MIMOSA26_0.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_1.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_2.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_3.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_4.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_5.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:Monopix2_0.file_name=\"$FILE_MPX\" 
+-o EventLoaderBelleIITJ2:MIMOSA26_0.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_1.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_2.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_3.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_4.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_5.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:Monopix2_0.file_name=\"$FILE_MPX\" 
 
 
 
@@ -112,13 +112,13 @@ corry -c $CORRY_CONFIG \
 -o detectors_file_updated="../geo/temp/${RUN_NUMBER}_detectors_dut_align_1.geo" \
 -o histogram_file="$ROOT_FILE" \
 -o output_directory="$ROOT_DIR" \
--o EventLoaderEUDAQ2:MIMOSA26_0.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_1.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_2.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_3.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_4.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_5.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:Monopix2_0.file_name=\"$FILE_MPX\"
+-o EventLoaderBelleIITJ2:MIMOSA26_0.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_1.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_2.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_3.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_4.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_5.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:Monopix2_0.file_name=\"$FILE_MPX\"
 
 
 CORRY_CONFIG="./align_dut_mpx2.conf"
@@ -130,10 +130,10 @@ corry -c $CORRY_CONFIG \
 -o detectors_file_updated="../geo/full_aligned/geo_id${GEO_ID}_full_aligned.geo" \
 -o histogram_file="$ROOT_FILE" \
 -o output_directory="$ROOT_DIR" \
--o EventLoaderEUDAQ2:MIMOSA26_0.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_1.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_2.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_3.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_4.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:MIMOSA26_5.file_name=\"$FILE_TEL\" \
--o EventLoaderEUDAQ2:Monopix2_0.file_name=\"$FILE_MPX\" 
+-o EventLoaderBelleIITJ2:MIMOSA26_0.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_1.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_2.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_3.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_4.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:MIMOSA26_5.file_name=\"$FILE_TEL\" \
+-o EventLoaderBelleIITJ2:Monopix2_0.file_name=\"$FILE_MPX\" 

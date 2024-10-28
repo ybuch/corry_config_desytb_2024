@@ -1,0 +1,5 @@
+a=0.032
+b=6.551
+c=153.093
+t=0.000
+calibration_factor=18

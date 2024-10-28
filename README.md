@@ -1,17 +1,17 @@
 # General Instructions
 
-This repo contains needed scripts and files for the alignment and analysis of TB data. Please note that paths need to be updated in the scrips as well as in geo files (path to mask files). The scripts also assume that the corryvreckan binary is in PATH. 
+This repo contains needed scripts and files for the alignment and analysis of TB data. Please note that paths are set, but wrong if anyone else wants to use them and need to be updated in the scrips as well as in geo files (path to mask files). The scripts also assume that the corryvreckan binary is in PATH. In this branch, the charge calibration has been added
 
-Alignment: run `full_align.sh` for each geo_id (telescope and DUT alignment) and afterwards `run_alignment.sh` for each run (DUT alignment).
+Alignment: run `full_align.sh` for each geo_id (telescope and DUT alignment) and afterwards `run_alignment.sh` for each run (DUT alignment). 
 
 Masking: run `mask_generator.sh` which generates a mask file from a default mask (masking not used frontends) and a yaml file (list of disabeled pixels in the data taking). Please nothe that the default masks do not work for all runs since the frontends were also changed within geo_ids! These masks were adapted by hand and a set of working masks is stored under initial_masks.
 
-Analysis: is done using jobsub which is installed under your corry installation (see corry manual and below). A csv file has to be created with `data_searcher.sh` which contains information of geo and data for each run before starting the analysis.
+Analysis: is done using jobsub which is installed under your corry installation (see corry manual and below). A csv file has to be created with `data_searcher.sh` which contains information of geo and data for each run before starting the analysis. The charge calibration has to be set with a flag int the `analysis.conf` with `use_calibrated_values = true`, then the calibration file for the run will be used automatically.
 ## Software
 
 Root: 6.24/06, ROOT 6.26/10 seem to work both.
 Eudaq: https://github.com/bpilsl/eudaq/tree/monopix2
-Corryvreckan: Master branch cf10f1ad0a4ff3e21eb8bdc7235664727f3393f4
+Corryvreckan: https://gitlab.desy.de/marike.schwickardi/corry_fork 
 
 
 ## conf
@@ -35,9 +35,13 @@ List of runnumbers with matching geo_ids
 
 Folder containing used mask files (applied_masks) and scripts for generating mask_files.
 
+## geo/calibration
+
+Folder containing calibration files per run if available.
+
 ### mask_generator.sh
 
-This script copies a default mask from the default folder (containing information about the masking of the not activated frontends) and appends the information of the yaml files depending on the runnumber (by using extract_masked_pixels.py). The output is stored in the folder applied_masks. Please note that the default masks are not propper for all runs since changes in the masking werde done throughout equal geo_ids. Already finished masks can be found in the folder initial_masks.
+This script copies a default mask from the default folder (containing information about the masking of the not-activated frontends) and appends the information of the yaml files depending on the runnumber (by using extract_masked_pixels.py). The output is stored in the folder applied_masks. Please note that the default masks are not propper for all runs since changes in the masking werde done throughout equal geo_ids. Already finished masks can be found in the folder initial_masks.
 
 ### analysis
 
