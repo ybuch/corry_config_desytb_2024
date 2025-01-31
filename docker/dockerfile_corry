@@ -56,4 +56,7 @@ RUN cmake -D PYTHON_EXECUTABLE=`which python` -D EUDAQ_BUILD_PYTHON=ON -D USER_M
 RUN make -j $(nproc)
 RUN make install
 
-ENTRYPOINT source /src/root_install/bin/thisroot.sh
+WORKDIR /
+RUN printf "source /src/root_install/bin/thisroot.sh\n/bin/bash" > startup.sh
+ENTRYPOINT source startup.sh
+
