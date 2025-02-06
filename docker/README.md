@@ -12,19 +12,21 @@
 
 `$ mkdir $HOME/s3_cloud`
 
+If you need the passwd_file, write me at yannik.buch@stud.uni-goettingen.de
+
+Change permissions of key files with
+
+`$ sudo chmod 600 .passwd-s3fs`
+
+`$ sudo chmod 600 .s3cfg`
+
 `$ s3fs tjmonopix2-desy-tb-2024 $HOME/s3_cloud/ -o url=https://s3.gwdg.de -o passwd_file=$HOME/.passwd-s3fs -o allow_root`
 
 **Hints if the previous line does not work**: 	
 
 To use -o allow_root you will have to uncomment “user_allow_other” in /etc/fuse.conf
 
-If you need the passwd_file, write me at yannik.buch@stud.uni-goettingen.de
 
-change permissions of key files with
-
-`$ sudo chmod 600 .passwd-s3fs`
-
-`$ sudo chmod 600 .s3cfg`
 
 The network folder will appear in  $HOME/s3_cloud/
 
