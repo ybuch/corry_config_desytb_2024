@@ -2,6 +2,8 @@
 
 ## Mount Cloud data (optional)
 
+`$ conda create -y -n s3 python=3.10`
+
 `$ conda activate s3`
 
 `$ pip install s3cmd`
