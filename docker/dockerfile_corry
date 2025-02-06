@@ -55,6 +55,7 @@ RUN apt-get install -y libeigen3-dev
 RUN cmake -D PYTHON_EXECUTABLE=`which python` -D EUDAQ_BUILD_PYTHON=ON -D USER_MONOPIX2_BUILD=ON -D BUILD_EventLoaderEUDAQ2=ON -DEUDAQ_BUILD_STDEVENT_MONITOR=ON ..
 RUN make -j $(nproc)
 RUN make install
+ENV PATH="$PATH:/src/corryvreckan/bin/"
 
 WORKDIR /
 RUN printf "source /src/root_install/bin/thisroot.sh\n/bin/bash" > startup.sh
