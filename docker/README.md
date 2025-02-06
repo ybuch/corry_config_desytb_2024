@@ -36,7 +36,7 @@ The network folder will appear in  $HOME/s3_cloud/
 
 ## Docker
 Install docker for your OS https://docs.docker.com/engine/install/
-This manual assumes that you added docker to your sudo group liek is described here [https://github.com/ybuch/corry_config_desytb_2024](https://docs.docker.com/engine/install/linux-postinstall/)
+This manual assumes that you added docker to your sudo group like is described here https://docs.docker.com/engine/install/linux-postinstall/
 
 Clone repo
 
