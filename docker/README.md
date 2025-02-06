@@ -14,6 +14,8 @@
 
 If you need the passwd_file, write me at yannik.buch@stud.uni-goettingen.de
 
+Copy both password files in your home folder and remove any characters before the dot, so that they are hidden files
+
 Change permissions of key files with
 
 `$ sudo chmod 600 .passwd-s3fs`
@@ -52,7 +54,7 @@ Run container with:
 
 `$ docker run --name corry_container -i -t --mount type=bind,source=$HOME/corry_config_desytb_2024/,target=/corry_config_desytb_2024 --mount type=bind,source=$HOME/s3_cloud/,target=/s3_cloud,readonly corry:tb2024`
 
-Help:
+Help in case you need to change the docker run command, e.g. if your setup requires different paths:
 
 **--name** 	    Give a name to your container. This is optional and an arbitrary choice.
 
