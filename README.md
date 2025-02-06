@@ -13,6 +13,9 @@ Root: 6.24/06, ROOT 6.26/10 seem to work both.
 Eudaq: https://github.com/bpilsl/eudaq/tree/monopix2
 Corryvreckan: Master branch cf10f1ad0a4ff3e21eb8bdc7235664727f3393f4
 
+## Docker
+
+Refer to readme in docker folder for more information
 
 ## conf
 
