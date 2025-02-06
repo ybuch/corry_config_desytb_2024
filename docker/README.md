@@ -40,7 +40,7 @@ Clone repo
 
 `$ git clone https://github.com/ybuch/corry_config_desytb_2024.git`
 
-`$ cd docker`
+`$ cd corry_config_desytb_2024/docker`
 
 in folder with dockerfile_corry execute
 
@@ -50,7 +50,7 @@ This will take some time as root, eudaq and corry will be built from source.
 
 Run container with:
 
-`$ docker run --name corry_container -i -t --mount type=bind,source=/home/bgnet2/corry_config_desytb_2024/,target=/corry_config_desytb_2024 --mount type=bind,source=/home/bgnet2/s3_cloud/,target=/s3_cloud,readonly corry:tb2024`
+`$ docker run --name corry_container -i -t --mount type=bind,source=$HOME/corry_config_desytb_2024/,target=/corry_config_desytb_2024 --mount type=bind,source=$HOME/s3_cloud/,target=/s3_cloud,readonly corry:tb2024`
 
 Help:
 
