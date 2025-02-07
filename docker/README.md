@@ -50,11 +50,13 @@ in folder with dockerfile_corry execute
 
 This will take some time as root, eudaq and corry will be built from source.
 
-Run container without graphics (use this if you are running on servers):
+Choose option with or without graphics:
+
+Option 1: Run container without graphics (use this if you are running on servers):
 
 `$ docker run --name corry_container -i -t --mount type=bind,source=$HOME/corry_config_desytb_2024/,target=/corry_config_desytb_2024 --mount type=bind,source=$HOME/s3_cloud/,target=/s3_cloud,readonly corry:tb2024`
 
-Run container with graphics (use this if you want to use root inside the docker container for TBrowser to inspect root files):
+Option 2: Run container with graphics (use this if you want to use root inside the docker container for TBrowser to inspect root files):
 
 Allow docker to connect to X11 socket
 
