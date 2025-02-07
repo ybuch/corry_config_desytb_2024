@@ -50,9 +50,17 @@ in folder with dockerfile_corry execute
 
 This will take some time as root, eudaq and corry will be built from source.
 
-Run container with:
+Run container without graphics (use this if you are running on servers):
 
 `$ docker run --name corry_container -i -t --mount type=bind,source=$HOME/corry_config_desytb_2024/,target=/corry_config_desytb_2024 --mount type=bind,source=$HOME/s3_cloud/,target=/s3_cloud,readonly corry:tb2024`
+
+Run container with graphics (use this if you want to use root inside the docker container for TBrowser to inspect root files):
+
+Allow docker to connect to X11 socket
+
+`$ xhost +local:docker`
+
+`$ docker run --name corry_container -i -t --mount type=bind,source=/home/bgnet2/corry_config_desytb_2024/,target=/corry_config_desytb_2024 --mount type=bind,source=/home/bgnet2/s3_cloud/,target=/s3_cloud,readonly -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix corry:tb2024`
 
 Help in case you need to change the docker run command, e.g. if your setup requires different paths:
 
@@ -107,3 +115,15 @@ Start analysis with
 `$ cd corry_config_desytb_2024/conf/`
 
 `$ python3 analyze.py --start 1535 --stop 1535`
+
+Analysis files (as well as any output files for that matter) are to be found in the mounted analysis git repository. Analysis files can be found in /analysis 
+
+Inspecting analysis files can be done with a root TBrowser from either the host system or, if configured during the startup of the docker container, with the root version inside docker. 
+
+`$ cd corry_config_desytb_2024/analysis`
+
+`$ root`
+
+`$ new TBrowser`
+
+Select respective analysis file for a specific run and browse through the available hitmaps/histograms/plots 
