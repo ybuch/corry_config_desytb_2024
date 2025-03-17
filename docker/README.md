@@ -44,7 +44,9 @@ Clone repo
 
 `$ cd corry_config_desytb_2024/docker`
 
-in folder with dockerfile_corry execute
+You can pull the image from Docker Hub using `ybuch/belle-ii-tb:2024` in the subsequent calls instead of the name defined by `corry:tb2024` in the previous line. 
+
+Alternatively you can also build the image from source by executing the following line in the folder with dockerfile_corry execute
 
 `$ docker build -t corry:tb2024 -f dockerfile_corry .`
 
